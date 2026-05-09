@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROCKETRY SUPREME | Глобальная Энциклопедия</title>
+    <style>
+        :root {
+            --accent: #00f2ff;
+            --accent-bg: rgba(0, 242, 255, 0.1);
+            --bg: #020406;
+            --card: #0d1117;
+            --text: #e6edf3;
+            --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: var(--font);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Анимированный фон */
+        #space-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; background: radial-gradient(circle at center, #05101c 0%, #020406 100%);
+        }
+
+        /* Навигация */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: rgba(2, 4, 6, 0.8); backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 242, 255, 0.2);
+            padding: 15px 0; display: flex; justify-content: center; gap: 25px;
+        }
+        nav a {
+            color: var(--text); text-decoration: none; font-size: 0.7rem;
+            letter-spacing: 3px; font-weight: 800; transition: 0.3s; opacity: 0.5;
+        }
+        nav a:hover { opacity: 1; color: var(--accent); }
+
+        /* Главный экран */
+        .hero {
+            height: 100vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+        }
+        .hero h1 {
+            font-size: clamp(3rem, 12vw, 10rem); font-weight: 900;
+            background: linear-gradient(180deg, #fff 30%, var(--accent));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 30px var(--accent-bg));
+            text-transform: uppercase; line-height: 0.8;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Секции */
+        section { padding: 150px 0; }
+        h2 { font-size: 3rem; margin-bottom: 60px; text-transform: uppercase; color: var(--accent); }
+
+        /* Сетка с карточками */
+        .mega-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
+        }
+        .card {
+            background: var(--card); padding: 40px; border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.05); transition: 0.5s;
+            position: relative; overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-10px); border-color: var(--accent);
+            box-shadow: 0 10px 40px rgba(0, 242, 255, 0.1);
+        }
+        .card h3 { font-size: 1.8rem; margin-bottom: 20px; color: var(--accent); }
+
+        /* Таблица характеристик */
+        .table-container { 
+            overflow-x: auto; background: var(--card); border-radius: 30px; padding: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        table { width: 100%; border-collapse: collapse; min-width: 600px; }
+        th, td { padding: 25px; text-align: left; border-bottom: 1px solid #1c2128; }
+        th { color: var(--accent); text-transform: uppercase; font-size: 0.8rem; }
+        tr:hover { background: rgba(255,255,255,0.02); }
+
+        /* Инфо-блоки */
+        .info-panel {
+            background: linear-gradient(90deg, var(--accent-bg), transparent);
+            padding: 40px; border-radius: 20px; border-left: 5px solid var(--accent);
+            margin-top: 50px;
+        }
+
+        /* Футер */
+        footer {
+            background: #000; padding: 100px 0; text-align: center;
+            border-top: 1px solid #111;
+        }
+
+        .scroll-reveal { opacity: 0; transform: translateY(40px); transition: 1s ease-out; }
+        .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+
+    </style>
+</head>
+<body>
+
+    <canvas id="space-bg"></canvas>
+
+    <nav>
+        <a href="#history">ИСТОРИЯ</a>
+        <a href="#tech">ТЕХНОЛОГИИ</a>
+        <a href="#rockets">РАКЕТЫ</a>
+        <a href="#future">БУДУЩЕЕ</a>
+    </nav>
+
+    <section class="hero">
+        <p style="letter-spacing: 20px; font-size: 0.8rem; margin-bottom: 20px;">PROJECT: UNIVERSE</p>
+        <h1>ORBITAL<br>POWER</h1>
+        <div style="margin-top: 50px; font-size: 1.5rem; opacity: 0.5;">Скролль вниз, чтобы начать запуск</div>
+    </section>
+
+    <div class="container">
+        
+        <section id="history" class="scroll-reveal">
+            <h2>Путь к звездам</h2>
+            <div class="mega-grid">
+                <div class="card">
+                    <h3>1940-е: Начало</h3>
+                    <p>От Фау-2 до первых чертежей мощных двигателей. Время, когда мечта превратилась в расчеты.</p>
+                </div>
+                <div class="card">
+                    <h3>1960-е: Гонка</h3>
+                    <p>Эпоха Королева и Фон Брауна. Битва идеологий, подарившая нам выход в открытый космос.</p>
+                </div>
+                <div class="card">
+                    <h3>2020-е: Революция</h3>
+                    <p>Частные компании делают космос доступным. Ракеты больше не одноразовые инструменты.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="tech" class="scroll-reveal">
+            <h2>Как это летит?</h2>
+            <div class="info-panel">
+                <h3>Уравнение Циолковского</h3>
+                <p>Основная формула космонавтики: <strong>Δv = Iₛₚ * ln(m₀ / mf)</strong>. Она говорит нам, что для набора скорости нужно либо увеличивать эффективность двигателя, либо уменьшать вес конструкции.</p>
+            </div>
+            <div class="mega-grid" style="margin-top: 40px;">
+                <div class="card">
+                    <h3>Криогенное топливо</h3>
+                    <p>Жидкий кислород и метан. Сверхнизкие температуры позволяют сжимать газ до жидкого состояния, экономя место.</p>
+                </div>
+                <div class="card">
+                    <h3>Тепловые щиты</h3>
+                    <p>При возвращении ракета разогревается до 1600°C. Плитки из керамики защищают корпус от испарения.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="rockets" class="scroll-reveal">
+            <h2>Сравнение гигантов</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Система</th>
+                            <th>Тяга (МН)</th>
+                            <th>Высота (м)</th>
+                            <th>Масса (т)</th>
+                            <th>Назначение</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Starship (SpaceX)</td>
+                            <td>74.4</td>
+                            <td>121</td>
+                            <td>5000</td>
+                            <td>Марс / Луна</td>
+                        </tr>
+                        <tr>
+                            <td>Saturn V</td>
+                            <td>34.5</td>
+                            <td>110</td>
+                            <td>2970</td>
+                            <td>Программа Аполлон</td>
+                        </tr>
+                        <tr>
+                            <td>Н-1 (СССР)</td>
+                            <td>45.0</td>
+                            <td>105</td>
+                            <td>2735</td>
+                            <td>Лунная программа</td>
+                        </tr>
+                        <tr>
+                            <td>SLS (NASA)</td>
+                            <td>39.1</td>
+                            <td>98</td>
+                            <td>2600</td>
+                            <td>Артемида</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="future" class="scroll-reveal">
+            <h2>Будущее: Марс и далее</h2>
+            <div class="card" style="width: 100%;">
+                <h3>Межпланетная база</h3>
+                <p>План колонизации включает создание заводов по производству топлива прямо на поверхности Марса (метод Сабатье). Ракеты будущего будут использовать ядерные тепловые двигатели, сокращая полет до 3 месяцев вместо 9.</p>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p style="letter-spacing: 5px;">STRATEGIC ROCKET FORCES / DIGITAL ENCYCLOPEDIA</p>
+        <p style="margin-top: 20px; opacity: 0.3;">Все данные актуальны на 2024 год</p>
+    </footer>
+
+    <script>
+        // Анимация звезд
+        const canvas = document.getElementById('space-bg');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            stars = [];
+            for(let i=0; i<300; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    z: Math.random() * canvas.width,
+                    o: Math.random()
+                });
+            }
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            stars.forEach(s => {
+                let x = (s.x - canvas.width / 2) * (canvas.width / s.z) + canvas.width / 2;
+                let y = (s.y - canvas.height / 2) * (canvas.width / s.z) + canvas.height / 2;
+                let r = (canvas.width / s.z) * 0.5;
+                ctx.fillStyle = `rgba(255, 255, 255, ${s.o})`;
+                ctx.beginPath();
+                ctx.arc(x, y, r, 0, Math.PI * 2);
+                ctx.fill();
+                s.z -= 1.5;
+                if(s.z <= 0) s.z = canvas.width;
+            });
+            requestAnimationFrame(draw);
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+        draw();
+
+        // Плавное появление контента
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
